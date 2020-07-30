@@ -7,6 +7,7 @@ const initialState = {
   slectedLocation: [],
   slectedItems: [],
   itemData: [],
+  avageVolume: [],
 };
 
 const useGlobal = useGlobalHook(React, initialState, actions);

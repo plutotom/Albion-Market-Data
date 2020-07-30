@@ -6,21 +6,20 @@ var arr = [
   "will%20be%20added",
 ];
 
-let obj = [
-  { Unq: "martlock" },
-  { Unq: "celeail" },
-  { Unq: "some%20other%20placew" },
-  { Unq: "something" },
-  { Unq: "will%20be%20added" },
+let obj = { addMe: ":)" };
+
+let obj1 = [
+  { Unq: "martlock", number: "3232" },
+  { Unq: "celeail", number: "3232" },
+  { Unq: "some%20other%20placew", number: "3232" },
+  { Unq: "something", number: "3232" },
+  { Unq: "will%20be%20added", number: "3232" },
 ];
 
-const handleAddSearchItem = (boolen, value) => {
-  console.log(arr);
-};
-
-
-handleAddSearchItem(true, )
-
+Object.values(obj1).map((elm, index, y) => {
+  console.log((elm.me = obj.addMe));
+  console.log(elm);
+});
 
 // for (var index in obj) {
 //   // console.log(arr[index]);

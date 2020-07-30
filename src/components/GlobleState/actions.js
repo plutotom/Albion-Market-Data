@@ -1,17 +1,3 @@
-// import { GETSettings } from "../utiles/PointAPI";
-// export const settingDefaultState = async (store, value) => {
-//   var t = (store.state.defaultDuration = await GETSettings().then((data) => {
-//     return data.defaultDuration;
-//   }));
-
-//   await store.setState({ t });
-// };
-
-// export const addNamesToTable = (store, value) => {
-//   const thing = (store.state.defaultDuration = value);
-//   store.setState({ thing });
-// };
-
 var NamesObj = require("../../ablion_data/items.json");
 export const setDefaultNameTable = (store, value) => {
   var names = [];
@@ -28,7 +14,6 @@ export const setDefaultNameTable = (store, value) => {
     }
   });
   const AllNames = (store.state.defaultNamesData = names);
-  // console.log(ALlNames);
 
   store.setState(AllNames);
 };
@@ -37,7 +22,6 @@ export const setSlectedLocation = (store, value) => {
   let slectedLocation = (store.state.slectedLocation = value);
 
   store.setState(slectedLocation);
-  console.log(store.state.slectedItems);
 };
 
 export const setSlectedItems = (store, value) => {
@@ -75,10 +59,10 @@ export const searchItems = (store, value) => {
         // if we have looped though the whole list then, run the search.
         console.log("fettching data");
         let url = `https://www.albion-online-data.com/api/v2/stats/prices/${state.slectedItems}?locations=${tempArrayOfPlacesToSearch}`;
+
         fetch(url)
           .then((response) => response.json())
           .then((res) => {
-            console.log("settings state");
             store.setState((state.itemData = res));
           });
       }
@@ -96,4 +80,19 @@ export const searchItems = (store, value) => {
   }
 
   // console.log(state.itemData);
+};
+
+export const setAvageVolume = async (store, value) => {
+  let avageURL = `https://www.albion-online-data.com/api/v2/stats/history/${value}?time-scale=1&locations=Caerleon`;
+  let x = 0;
+  await fetch(avageURL)
+    .then((res) => res.json())
+    .then((res) => {
+      var tempArr = [];
+      res[0].data.forEach((elm) => {
+        tempArr.push(elm.item_count);
+      });
+      x = tempArr.reduce((a, b) => a + b, 0) / tempArr.length;
+    });
+  await store.setState((store.state.avageVolume = x));
 };

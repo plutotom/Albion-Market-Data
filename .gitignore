@@ -1,5 +1,6 @@
 electron-builder.yml
 dist
+dist.zip
 # Logs
 logs
 *.log
