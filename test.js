@@ -1,4 +1,4 @@
-var data = [
+var arr = [
   "martlock",
   "celeail",
   "some%20other%20placew",
@@ -14,14 +14,22 @@ let obj = [
   { Unq: "will%20be%20added" },
 ];
 
-for (var index in obj) {
-  // console.log(data[index]);
-  if (Object.values(obj[index]).indexOf("m") > -1) {
-    console.log("has test1");
-  }
-}
+const handleAddSearchItem = (boolen, value) => {
+  console.log(arr);
+};
 
-// console.log(data.indexOf("martlock"));
+
+handleAddSearchItem(true, )
+
+
+// for (var index in obj) {
+//   // console.log(arr[index]);
+//   if (Object.values(obj[index]).indexOf("m") > -1) {
+//     console.log("has test1");
+//   }
+// }
+
+// console.log(arr.indexOf("martlock"));
 
 // var checked = {
 //   martlock: false,
@@ -34,13 +42,13 @@ for (var index in obj) {
 // var arr = [];
 // var str = "";
 
-// data.forEach((e, i) => {
+// arr.forEach((e, i) => {
 //   if (Object.values(checked)[i] === true) {
 //     str = str + e + "%2C";
 
 //     arr.push(e);
 
-//     if (i === data.length - 1) {
+//     if (i === arr.length - 1) {
 //       console.log("fetch", str);
 //     }
 //   }

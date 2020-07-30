@@ -4,6 +4,9 @@ import * as actions from "./actions.js";
 
 const initialState = {
   defaultNamesData: [],
+  slectedLocation: [],
+  slectedItems: [],
+  itemData: [],
 };
 
 const useGlobal = useGlobalHook(React, initialState, actions);
